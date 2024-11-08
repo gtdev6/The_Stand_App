@@ -1,0 +1,165 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/AnonymousPro-Bold.ttf",
+      "sha1": "bfc8d198336c84f11f43c33671de9e23ddf3d058"
+    },
+    {
+      "path": "assets/fonts/AnonymousPro-Regular.ttf",
+      "sha1": "e5a1581199fe0058ba03e322b9a4823e199dd2b6"
+    },
+    {
+      "path": "assets/fonts/Caveat-Bold.ttf",
+      "sha1": "e71feaec30e28858890521f4116b468c44efec08"
+    },
+    {
+      "path": "assets/fonts/Caveat.ttf",
+      "sha1": "82b10abbb30f9644797aada1802e9da7784e464e"
+    },
+    {
+      "path": "assets/fonts/Cooper Black Italic Pro.ttf",
+      "sha1": "3d33d7e68f1d84476953c72e377fa1510bc215b3"
+    },
+    {
+      "path": "assets/fonts/Just Note.ttf",
+      "sha1": "698c342daf792505ebb872bb2eceaa828d140b59"
+    },
+    {
+      "path": "assets/fonts/TchigMono-Bold.ttf",
+      "sha1": "9c2c9d80c8668f5602775b2042aae81443ce9c85"
+    },
+    {
+      "path": "assets/fonts/TchigMono-Light.ttf",
+      "sha1": "e481152e02c75357701b1dfec0ca94e792c8af74"
+    },
+    {
+      "path": "assets/fonts/TchigMono-Medium.ttf",
+      "sha1": "d3cf492977a59d3cbb03523d3c23e1248d7d9e26"
+    },
+    {
+      "path": "assets/fonts/TchigMono-Regular.ttf",
+      "sha1": "23d798d0bae5eeb11679e54d48fcd67536577dfd"
+    },
+    {
+      "path": "assets/images/Carts/cardboard_stand_image.png",
+      "sha1": "0688166bea4fc32f3c62955e13493af82766c432"
+    },
+    {
+      "path": "assets/images/Carts/classic_stand_image.png",
+      "sha1": "e46d18d270f2739ad25cd44813ee0456ebf720e2"
+    },
+    {
+      "path": "assets/images/Carts/eco_stand_image.png",
+      "sha1": "e2b274d869fdb906186a500e8f02001ebac66bb4"
+    },
+    {
+      "path": "assets/images/Carts/portable_stand_image.png",
+      "sha1": "8c7086f427d15b2bed3b5878f67d25cb6b09f82a"
+    },
+    {
+      "path": "assets/images/Carts/rolling_stand_image.png",
+      "sha1": "9c668c86ec294095bad48c510e758fffea74eca5"
+    },
+    {
+      "path": "assets/images/LemonadeImages/classic_homemade_lemonade.png",
+      "sha1": "865cd385962007e43d3a5464ffa9ef32f062d77c"
+    },
+    {
+      "path": "assets/images/LemonadeImages/country_time_lemonade.png",
+      "sha1": "f110c4a9b6b0afdbf0ee178c0a150fc869eae450"
+    },
+    {
+      "path": "assets/images/LemonadeImages/country_time_pink_lemonade.png",
+      "sha1": "ffaf80866013e62ac07808c65346862e09f4d7c3"
+    },
+    {
+      "path": "assets/images/LemonadeImages/mint_lemonade.png",
+      "sha1": "460253e5a2f8fceb790969b354936060a30b13e2"
+    },
+    {
+      "path": "assets/images/LemonadeImages/strawberry_lemonade.png",
+      "sha1": "da4cea8960c4759570eb2f0fd790e5fb473bf20a"
+    },
+    {
+      "path": "assets/images/MenuItems/build.png",
+      "sha1": "9164bf3be640b8a71edbc9dd77e8e9478c08807f"
+    },
+    {
+      "path": "assets/images/MenuItems/market.png",
+      "sha1": "8a479cf17287907e5661576d132b032d8e5b19b4"
+    },
+    {
+      "path": "assets/images/MenuItems/money.png",
+      "sha1": "67eaa2b353d5cc6882e6fd0363c77c69a736e5a2"
+    },
+    {
+      "path": "assets/images/MenuItems/recipes.png",
+      "sha1": "a724599cba1ddf71922ceed9065c0dd73d7ace20"
+    },
+    {
+      "path": "assets/images/background.png",
+      "sha1": "758e9f53337e2ba44326d94ba63d8812d5a15e34"
+    },
+    {
+      "path": "assets/images/chevro_left.svg",
+      "sha1": "45c99fa2c283eadd9a97312b5af96893960fa112"
+    },
+    {
+      "path": "assets/images/chevron_left.png",
+      "sha1": "6c14955093238864d8de40950f2fe06334ed9341"
+    },
+    {
+      "path": "assets/images/chevron_right.png",
+      "sha1": "1d914fa5de9bb889af7e1c32145bbe6aa77dc278"
+    },
+    {
+      "path": "assets/images/chevron_right.svg",
+      "sha1": "e8ee47e79b94148619d35a81f86b605485bcb147"
+    },
+    {
+      "path": "assets/images/drink.jpg",
+      "sha1": "ddddce34da7c0e7a5a4c997ceb8790c1e3777311"
+    },
+    {
+      "path": "assets/images/heart_ic.png",
+      "sha1": "2764c290d7e5707fda7de8ba1c9f73a69c4050af"
+    },
+    {
+      "path": "assets/images/heart_ic_liked.png",
+      "sha1": "f5d38345dd7b2c920e9a31dc54b03fd206f092f8"
+    },
+    {
+      "path": "assets/images/home_made_lemonade.jpg",
+      "sha1": "bacd5f0b3d26c9a0639e63bfd8433a5adcc71ed3"
+    },
+    {
+      "path": "assets/images/home_made_lemonade_1.jpg",
+      "sha1": "99de362d548144ffec8b331763c11cca269e4c7d"
+    },
+    {
+      "path": "assets/images/lemon_cartoon.png",
+      "sha1": "35b4b91a527f171bb7199d40c7b1c1c5ba8cbf55"
+    },
+    {
+      "path": "assets/images/lemonadeposter.png",
+      "sha1": "a093ead0375ed1ee1c4e18c0bf13ba8f968b834f"
+    },
+    {
+      "path": "assets/images/location.png",
+      "sha1": "73e401e7de1db0bd0b23666d711fdb444687f2f8"
+    },
+    {
+      "path": "assets/images/logo_v1.png",
+      "sha1": "a44cc9251cfdfe4cb6a2ac3c8176aa3021ed4922"
+    },
+    {
+      "path": "assets/images/the_stand_app_logo.png",
+      "sha1": "d9f8e5330d66150ac29fc01d4d7c3b8dbac8bf7a"
+    },
+    {
+      "path": "assets/images/tick_circle.png",
+      "sha1": "08090b3d973caa238b726584ec774689df4d8ca1"
+    }
+  ]
+}
