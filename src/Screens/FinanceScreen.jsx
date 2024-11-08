@@ -16,6 +16,13 @@ import Androw from 'react-native-androw';
 import {useSelector} from 'react-redux';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 
+function formatNumber(num) {
+  return num.toLocaleString('en-US', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  });
+}
+
 const FinanceScreen = ({route, navigation}) => {
   const firstRecipe = useSelector(state => state.recipes.recipes[0]);
   let {recipe} = route.params ?? firstRecipe;
@@ -121,14 +128,31 @@ const FinanceScreen = ({route, navigation}) => {
                     styles.profitTextfield,
                     {
                       fontSize:
-                        windowWidth > 420 ? responsiveFontSize(3.2) : 24,
+                        windowWidth > 420
+                          ? totalProfit < 0
+                            ? `-$${formatNumber(totalProfit * -1)}`.length > 7
+                              ? `-$${formatNumber(totalProfit * -1)}`.length > 9
+                                ? responsiveFontSize(2)
+                                : responsiveFontSize(2.6)
+                              : responsiveFontSize(3.2)
+                            : `$${formatNumber(totalProfit)}`.length > 6
+                            ? responsiveFontSize(2.8)
+                            : responsiveFontSize(3.4)
+                          : totalProfit < 0
+                          ? `-$${formatNumber(totalProfit * -1)}`.length > 7
+                            ? 18
+                            : 24
+                          : `$${formatNumber(totalProfit)}`.length > 6
+                          ? 22
+                          : 24,
                     },
                   ]}
                   keyboardType={'number-pad'}
+                  maxLength={12}
                   value={
                     totalProfit < 0
-                      ? `-$${totalProfit * -1}`
-                      : `$${totalProfit}`
+                      ? `-$${formatNumber(totalProfit * -1)}`
+                      : `$${formatNumber(totalProfit)}`
                   }
                   editable={false}
                   focusable={false}
@@ -300,13 +324,22 @@ const FinanceScreen = ({route, navigation}) => {
                         {
                           fontSize:
                             windowWidth > 420
-                              ? responsiveFontSize(2)
+                              ? `$${(totalSales * pricePerCup).toFixed(2)}`
+                                  .length > 6
+                                ? responsiveFontSize(1.6)
+                                : responsiveFontSize(2)
                               : windowWidth < 400
-                              ? 14
+                              ? `$${(totalSales * pricePerCup).toFixed(2)}`
+                                  .length > 7
+                                ? 11
+                                : `$${(totalSales * pricePerCup).toFixed(2)}`
+                                    .length > 5
+                                ? 13
+                                : 15
                               : 16,
                         },
                       ]}
-                      value={`$${(totalSales * pricePerCup).toFixed(2)}`}
+                      value={`$${formatNumber(totalSales * pricePerCup)}`}
                       keyboardType={'number-pad'}
                       editable={false}
                       selectTextOnFocus={false}
@@ -359,6 +392,7 @@ const FinanceScreen = ({route, navigation}) => {
                     placeholder={'type here'}
                     placeholderTextColor={'#afafaf'}
                     textAlign={'center'}
+                    maxLength={5}
                     keyboardType={'number-pad'}
                     onFocus={event => {
                       _scrollToInput(event.target);
@@ -382,8 +416,10 @@ const FinanceScreen = ({route, navigation}) => {
                         tempIngredientCost = 0;
                       }
                       setTotalProfit(
-                        parseFloat(totalRevenue) -
-                          (tempIngredientCost + otherCostF),
+                        parseFloat(totalRevenue).toFixed(2) -
+                          parseFloat(tempIngredientCost + otherCostF).toFixed(
+                            2,
+                          ),
                       );
                       console.log(
                         'Total Profit : ----',
@@ -418,6 +454,7 @@ const FinanceScreen = ({route, navigation}) => {
                           windowWidth > 420 ? responsiveFontSize(2.4) : 16,
                       },
                     ]}>
+                    {' '}
                     Other
                   </Text>
                   <TextInput
@@ -431,6 +468,7 @@ const FinanceScreen = ({route, navigation}) => {
                       _scrollToInput(event.target); // Scroll to the input field when it gains focus
                     }}
                     value={`${otherCost}`}
+                    maxLength={5}
                     onChangeText={text => {
                       const validInput = handleNumberInput(text);
                       let ingredientsPrice = parseFloat(
@@ -451,7 +489,7 @@ const FinanceScreen = ({route, navigation}) => {
                         2,
                       );
                       setTotalProfit(
-                        parseFloat(totalRevenue) -
+                        parseFloat(totalRevenue).toFixed(2) -
                           (ingredientsPrice + other_Cost),
                       );
                     }}
@@ -494,10 +532,14 @@ const FinanceScreen = ({route, navigation}) => {
                       styles.costDetailsBWTF,
                       {
                         fontSize:
-                          windowWidth > 420 ? responsiveFontSize(2.3) : 22,
+                          windowWidth > 420
+                            ? responsiveFontSize(2.3)
+                            : `$${parseFloat(totalCost).toFixed(2)}`.length > 7
+                            ? 18
+                            : 22,
                       },
                     ]}
-                    value={`$${parseFloat(totalCost).toFixed(2)}`}
+                    value={`$${formatNumber(totalCost)}`}
                     onFocus={event => {
                       _scrollToInput(event.target); // Scroll to the input field when it gains focus
                     }}
