@@ -132,19 +132,19 @@ const FinanceScreen = ({route, navigation}) => {
                           ? totalProfit < 0
                             ? `-$${formatNumber(totalProfit * -1)}`.length > 7
                               ? `-$${formatNumber(totalProfit * -1)}`.length > 9
-                                ? responsiveFontSize(2)
-                                : responsiveFontSize(2.6)
-                              : responsiveFontSize(3.2)
+                                ? responsiveFontSize(1.8)
+                                : responsiveFontSize(2.4)
+                              : responsiveFontSize(2.8)
                             : `$${formatNumber(totalProfit)}`.length > 6
-                            ? responsiveFontSize(2.8)
-                            : responsiveFontSize(3.4)
+                            ? responsiveFontSize(2.7)
+                            : responsiveFontSize(3.2)
                           : totalProfit < 0
                           ? `-$${formatNumber(totalProfit * -1)}`.length > 7
-                            ? 18
-                            : 24
+                            ? 16
+                            : 22
                           : `$${formatNumber(totalProfit)}`.length > 6
-                          ? 22
-                          : 24,
+                          ? 20
+                          : 22,
                     },
                   ]}
                   keyboardType={'number-pad'}

@@ -107,6 +107,25 @@ android {
     }
 }
 
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleRelease') {
+        task.doLast {
+            // Set the directory where the APK is built
+            def releaseDir = file("$buildDir/outputs/apk/release")
+
+            // Define the new APK name with a timestamp or any other format you prefer
+            def newApkName = "The Stand App-${new Date().format('yyyyMMdd-HHmmss')}.apk"
+
+            // Find the original APK file and rename it
+            releaseDir.listFiles().each { file ->
+                if (file.name.endsWith(".apk")) {
+                    file.renameTo(new File(releaseDir, newApkName))
+                }
+            }
+        }
+    }
+}
+
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
