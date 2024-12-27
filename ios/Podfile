@@ -23,6 +23,10 @@ target 'Lemonade_Standing_App' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
+
   target 'Lemonade_Standing_AppTests' do
     inherit! :complete
     # Pods for testing

@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* Lemonade_Standing_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Lemonade_Standing_AppTests.m */; };
+		018204A76918498CA7EBCD36 /* heart_ic_liked.png in Resources */ = {isa = PBXBuildFile; fileRef = BB9BE392E2E24A249C6D4064 /* heart_ic_liked.png */; };
 		08A1D664DE9C4FAF99EA383C /* tick_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D6008023B794FC386F54194 /* tick_circle.png */; };
 		098124C3738849129ADA5CC2 /* chevron_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB8FD11B3C9402F96E5DA69 /* chevron_right.png */; };
 		0A3F17A90354480EBD5AA0BA /* Caveat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3310541A243B9BAC28DB5 /* Caveat.ttf */; };
+		0BFD22F4740545D7A12B3C6A /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D4BC17F7314F0B861B1F1D /* location.png */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Lemonade_Standing_App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Lemonade_Standing_App.a */; };
 		0D86CFD388EC4910A6AB6FFF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 212485CA360B47ADAF689D99 /* background.png */; };
+		1304A30E5E5844F194C81030 /* heart_ic.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DF90FFA319463081EF52AC /* heart_ic.png */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -34,6 +37,7 @@
 		6CFB6A04DDD545A2989F01ED /* logo_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 434F59FFD71749ECB6385D6C /* logo_v1.png */; };
 		71CF84851286423DA82F5190 /* classic_stand_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 43A7668BDCEF4014B8A2DB05 /* classic_stand_image.png */; };
 		7699B88040F8A987B510C191 /* libPods-Lemonade_Standing_App-Lemonade_Standing_AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Lemonade_Standing_App-Lemonade_Standing_AppTests.a */; };
+		797074049D124CC9A96461EA /* lemon_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7E82DB38694BDBB3099D8F /* lemon_cartoon.png */; };
 		7A9CEBD99F74456CA9010E65 /* country_time_pink_lemonade.png in Resources */ = {isa = PBXBuildFile; fileRef = A53AADAC1F4C4D218A4A80D5 /* country_time_pink_lemonade.png */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		81F4D21CD63B4D90B3571789 /* cardboard_stand_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C56CC605395D41F4BDF8BA63 /* cardboard_stand_image.png */; };
@@ -51,10 +55,6 @@
 		EB54B924E65DA6D2150E1E32 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A91C2DB316E8BC43DD488F82 /* PrivacyInfo.xcprivacy */; };
 		EDB89CED308447579447D741 /* rolling_stand_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9578A98DC67E4FEE801F609E /* rolling_stand_image.png */; };
 		F44FEF9A48FC40C586E127CB /* portable_stand_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFFC6CD21534676934A9944 /* portable_stand_image.png */; };
-		797074049D124CC9A96461EA /* lemon_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7E82DB38694BDBB3099D8F /* lemon_cartoon.png */; };
-		1304A30E5E5844F194C81030 /* heart_ic.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DF90FFA319463081EF52AC /* heart_ic.png */; };
-		018204A76918498CA7EBCD36 /* heart_ic_liked.png in Resources */ = {isa = PBXBuildFile; fileRef = BB9BE392E2E24A249C6D4064 /* heart_ic_liked.png */; };
-		0BFD22F4740545D7A12B3C6A /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D4BC17F7314F0B861B1F1D /* location.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,10 +71,11 @@
 		00E356EE1AD99517003FC87E /* Lemonade_Standing_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lemonade_Standing_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* Lemonade_Standing_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lemonade_Standing_AppTests.m; sourceTree = "<group>"; };
-		02CA4096A12B4632887E9203 /* drink.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = drink.jpg; path = ../assets/images/drink.jpg; sourceTree = "<group>"; };
-		06754F242DE14E5F94EA0479 /* chevro_left.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = chevro_left.svg; path = ../assets/images/chevro_left.svg; sourceTree = "<group>"; };
-		08DBE9C1F1E84E6DB940004C /* home_made_lemonade.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = home_made_lemonade.jpg; path = ../assets/images/home_made_lemonade.jpg; sourceTree = "<group>"; };
-		0BB8FD11B3C9402F96E5DA69 /* chevron_right.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_right.png; path = ../assets/images/chevron_right.png; sourceTree = "<group>"; };
+		02CA4096A12B4632887E9203 /* drink.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = drink.jpg; path = ../assets/images/drink.jpg; sourceTree = "<group>"; };
+		06754F242DE14E5F94EA0479 /* chevro_left.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = chevro_left.svg; path = ../assets/images/chevro_left.svg; sourceTree = "<group>"; };
+		08DBE9C1F1E84E6DB940004C /* home_made_lemonade.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = home_made_lemonade.jpg; path = ../assets/images/home_made_lemonade.jpg; sourceTree = "<group>"; };
+		0BB8FD11B3C9402F96E5DA69 /* chevron_right.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_right.png; path = ../assets/images/chevron_right.png; sourceTree = "<group>"; };
+		11DF90FFA319463081EF52AC /* heart_ic.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = heart_ic.png; path = ../assets/images/heart_ic.png; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Lemonade_Standing_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemonade_Standing_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Lemonade_Standing_App/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Lemonade_Standing_App/AppDelegate.mm; sourceTree = "<group>"; };
@@ -83,50 +84,49 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Lemonade_Standing_App/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Lemonade_Standing_App/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Lemonade_Standing_App-Lemonade_Standing_AppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lemonade_Standing_App-Lemonade_Standing_AppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		212485CA360B47ADAF689D99 /* background.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = background.png; path = ../assets/images/background.png; sourceTree = "<group>"; };
-		28252786875743EBB868B0B5 /* TchigMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Medium.ttf"; path = "../assets/fonts/TchigMono-Medium.ttf"; sourceTree = "<group>"; };
-		39D4A38CFD9E40AAA0B896CC /* AnonymousPro-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AnonymousPro-Regular.ttf"; path = "../assets/fonts/AnonymousPro-Regular.ttf"; sourceTree = "<group>"; };
-		39EAF8C9749442888FF49D44 /* market.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = market.png; path = ../assets/images/MenuItems/market.png; sourceTree = "<group>"; };
+		212485CA360B47ADAF689D99 /* background.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = background.png; path = ../assets/images/background.png; sourceTree = "<group>"; };
+		28252786875743EBB868B0B5 /* TchigMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Medium.ttf"; path = "../assets/fonts/TchigMono-Medium.ttf"; sourceTree = "<group>"; };
+		39D4A38CFD9E40AAA0B896CC /* AnonymousPro-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AnonymousPro-Regular.ttf"; path = "../assets/fonts/AnonymousPro-Regular.ttf"; sourceTree = "<group>"; };
+		39EAF8C9749442888FF49D44 /* market.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = market.png; path = ../assets/images/MenuItems/market.png; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Lemonade_Standing_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade_Standing_App.debug.xcconfig"; path = "Target Support Files/Pods-Lemonade_Standing_App/Pods-Lemonade_Standing_App.debug.xcconfig"; sourceTree = "<group>"; };
-		3DE7819CC4D1423D93614DD4 /* build.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = build.png; path = ../assets/images/MenuItems/build.png; sourceTree = "<group>"; };
-		3EAF794C667042CC8BA9998D /* AnonymousPro-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AnonymousPro-Bold.ttf"; path = "../assets/fonts/AnonymousPro-Bold.ttf"; sourceTree = "<group>"; };
-		434F59FFD71749ECB6385D6C /* logo_v1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = logo_v1.png; path = ../assets/images/logo_v1.png; sourceTree = "<group>"; };
-		43A7668BDCEF4014B8A2DB05 /* classic_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = classic_stand_image.png; path = ../assets/images/Carts/classic_stand_image.png; sourceTree = "<group>"; };
-		4A33CFC19E974B9D977F6EE5 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-Bold.ttf"; path = "../assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; };
-		4FFFC6CD21534676934A9944 /* portable_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = portable_stand_image.png; path = ../assets/images/Carts/portable_stand_image.png; sourceTree = "<group>"; };
+		3DE7819CC4D1423D93614DD4 /* build.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = build.png; path = ../assets/images/MenuItems/build.png; sourceTree = "<group>"; };
+		3EAF794C667042CC8BA9998D /* AnonymousPro-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AnonymousPro-Bold.ttf"; path = "../assets/fonts/AnonymousPro-Bold.ttf"; sourceTree = "<group>"; };
+		434F59FFD71749ECB6385D6C /* logo_v1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = logo_v1.png; path = ../assets/images/logo_v1.png; sourceTree = "<group>"; };
+		43A7668BDCEF4014B8A2DB05 /* classic_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = classic_stand_image.png; path = ../assets/images/Carts/classic_stand_image.png; sourceTree = "<group>"; };
+		4A33CFC19E974B9D977F6EE5 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-Bold.ttf"; path = "../assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; };
+		4FFFC6CD21534676934A9944 /* portable_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = portable_stand_image.png; path = ../assets/images/Carts/portable_stand_image.png; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Lemonade_Standing_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade_Standing_App.release.xcconfig"; path = "Target Support Files/Pods-Lemonade_Standing_App/Pods-Lemonade_Standing_App.release.xcconfig"; sourceTree = "<group>"; };
-		5A70D4B62C2C401D87A5B9B4 /* country_time_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = country_time_lemonade.png; path = ../assets/images/LemonadeImages/country_time_lemonade.png; sourceTree = "<group>"; };
+		5A70D4B62C2C401D87A5B9B4 /* country_time_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = country_time_lemonade.png; path = ../assets/images/LemonadeImages/country_time_lemonade.png; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests/Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Lemonade_Standing_App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lemonade_Standing_App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ECD0C639B74479E8648CFD8 /* TchigMono-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Bold.ttf"; path = "../assets/fonts/TchigMono-Bold.ttf"; sourceTree = "<group>"; };
-		617F1EEE831447EEB91CBEAB /* home_made_lemonade_1.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = home_made_lemonade_1.jpg; path = ../assets/images/home_made_lemonade_1.jpg; sourceTree = "<group>"; };
-		6D6008023B794FC386F54194 /* tick_circle.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = tick_circle.png; path = ../assets/images/tick_circle.png; sourceTree = "<group>"; };
-		6F5464AD79A84E9FA0D85E57 /* lemonadeposter.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = lemonadeposter.png; path = ../assets/images/lemonadeposter.png; sourceTree = "<group>"; };
-		72E30152897843AEBC87D38E /* eco_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = eco_stand_image.png; path = ../assets/images/Carts/eco_stand_image.png; sourceTree = "<group>"; };
-		7578A8EA50DA4737A171179B /* Just Note.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Just Note.ttf"; path = "../assets/fonts/Just Note.ttf"; sourceTree = "<group>"; };
-		7FC3310541A243B9BAC28DB5 /* Caveat.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Caveat.ttf; path = ../assets/fonts/Caveat.ttf; sourceTree = "<group>"; };
-		812C1870506948C68309705B /* chevron_right.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_right.svg; path = ../assets/images/chevron_right.svg; sourceTree = "<group>"; };
-		818ACEC52CD349CCB1BBBC70 /* TchigMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Regular.ttf"; path = "../assets/fonts/TchigMono-Regular.ttf"; sourceTree = "<group>"; };
+		5ECD0C639B74479E8648CFD8 /* TchigMono-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Bold.ttf"; path = "../assets/fonts/TchigMono-Bold.ttf"; sourceTree = "<group>"; };
+		617F1EEE831447EEB91CBEAB /* home_made_lemonade_1.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = home_made_lemonade_1.jpg; path = ../assets/images/home_made_lemonade_1.jpg; sourceTree = "<group>"; };
+		6D6008023B794FC386F54194 /* tick_circle.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tick_circle.png; path = ../assets/images/tick_circle.png; sourceTree = "<group>"; };
+		6F5464AD79A84E9FA0D85E57 /* lemonadeposter.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = lemonadeposter.png; path = ../assets/images/lemonadeposter.png; sourceTree = "<group>"; };
+		72E30152897843AEBC87D38E /* eco_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = eco_stand_image.png; path = ../assets/images/Carts/eco_stand_image.png; sourceTree = "<group>"; };
+		7578A8EA50DA4737A171179B /* Just Note.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Just Note.ttf"; path = "../assets/fonts/Just Note.ttf"; sourceTree = "<group>"; };
+		7FC3310541A243B9BAC28DB5 /* Caveat.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Caveat.ttf; path = ../assets/fonts/Caveat.ttf; sourceTree = "<group>"; };
+		812C1870506948C68309705B /* chevron_right.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_right.svg; path = ../assets/images/chevron_right.svg; sourceTree = "<group>"; };
+		818ACEC52CD349CCB1BBBC70 /* TchigMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Regular.ttf"; path = "../assets/fonts/TchigMono-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Lemonade_Standing_App/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.release.xcconfig"; path = "Target Support Files/Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests/Pods-Lemonade_Standing_App-Lemonade_Standing_AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		8E409CC6797C466394CD3BA4 /* Cooper Black Italic Pro.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Cooper Black Italic Pro.ttf"; path = "../assets/fonts/Cooper Black Italic Pro.ttf"; sourceTree = "<group>"; };
-		921134F5CF9D421A9AD0CB66 /* strawberry_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = strawberry_lemonade.png; path = ../assets/images/LemonadeImages/strawberry_lemonade.png; sourceTree = "<group>"; };
-		9578A98DC67E4FEE801F609E /* rolling_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = rolling_stand_image.png; path = ../assets/images/Carts/rolling_stand_image.png; sourceTree = "<group>"; };
-		A53AADAC1F4C4D218A4A80D5 /* country_time_pink_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = country_time_pink_lemonade.png; path = ../assets/images/LemonadeImages/country_time_pink_lemonade.png; sourceTree = "<group>"; };
+		8E409CC6797C466394CD3BA4 /* Cooper Black Italic Pro.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cooper Black Italic Pro.ttf"; path = "../assets/fonts/Cooper Black Italic Pro.ttf"; sourceTree = "<group>"; };
+		921134F5CF9D421A9AD0CB66 /* strawberry_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = strawberry_lemonade.png; path = ../assets/images/LemonadeImages/strawberry_lemonade.png; sourceTree = "<group>"; };
+		9578A98DC67E4FEE801F609E /* rolling_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = rolling_stand_image.png; path = ../assets/images/Carts/rolling_stand_image.png; sourceTree = "<group>"; };
+		A53AADAC1F4C4D218A4A80D5 /* country_time_pink_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = country_time_pink_lemonade.png; path = ../assets/images/LemonadeImages/country_time_pink_lemonade.png; sourceTree = "<group>"; };
 		A91C2DB316E8BC43DD488F82 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Lemonade_Standing_App/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		B13C07E0E8854A1088DD0F15 /* mint_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = mint_lemonade.png; path = ../assets/images/LemonadeImages/mint_lemonade.png; sourceTree = "<group>"; };
-		B38E20822D014E2AA1E04DDF /* TchigMono-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Light.ttf"; path = "../assets/fonts/TchigMono-Light.ttf"; sourceTree = "<group>"; };
-		C5150B05CE674C80ABA4E1D6 /* the_stand_app_logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = the_stand_app_logo.png; path = ../assets/images/the_stand_app_logo.png; sourceTree = "<group>"; };
-		C56CC605395D41F4BDF8BA63 /* cardboard_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = cardboard_stand_image.png; path = ../assets/images/Carts/cardboard_stand_image.png; sourceTree = "<group>"; };
-		CD0A69B14C924DFBA3D5F50F /* money.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = money.png; path = ../assets/images/MenuItems/money.png; sourceTree = "<group>"; };
-		D16B795AC3AA4C388C3A885E /* classic_homemade_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = classic_homemade_lemonade.png; path = ../assets/images/LemonadeImages/classic_homemade_lemonade.png; sourceTree = "<group>"; };
-		E781B0BB7BE44F25B34D3F1D /* chevron_left.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_left.png; path = ../assets/images/chevron_left.png; sourceTree = "<group>"; };
+		B13C07E0E8854A1088DD0F15 /* mint_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mint_lemonade.png; path = ../assets/images/LemonadeImages/mint_lemonade.png; sourceTree = "<group>"; };
+		B38E20822D014E2AA1E04DDF /* TchigMono-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Light.ttf"; path = "../assets/fonts/TchigMono-Light.ttf"; sourceTree = "<group>"; };
+		BB9BE392E2E24A249C6D4064 /* heart_ic_liked.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = heart_ic_liked.png; path = ../assets/images/heart_ic_liked.png; sourceTree = "<group>"; };
+		C5150B05CE674C80ABA4E1D6 /* the_stand_app_logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = the_stand_app_logo.png; path = ../assets/images/the_stand_app_logo.png; sourceTree = "<group>"; };
+		C56CC605395D41F4BDF8BA63 /* cardboard_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = cardboard_stand_image.png; path = ../assets/images/Carts/cardboard_stand_image.png; sourceTree = "<group>"; };
+		CD0A69B14C924DFBA3D5F50F /* money.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = money.png; path = ../assets/images/MenuItems/money.png; sourceTree = "<group>"; };
+		D16B795AC3AA4C388C3A885E /* classic_homemade_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = classic_homemade_lemonade.png; path = ../assets/images/LemonadeImages/classic_homemade_lemonade.png; sourceTree = "<group>"; };
+		DF7E82DB38694BDBB3099D8F /* lemon_cartoon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = lemon_cartoon.png; path = ../assets/images/lemon_cartoon.png; sourceTree = "<group>"; };
+		E5D4BC17F7314F0B861B1F1D /* location.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = location.png; path = ../assets/images/location.png; sourceTree = "<group>"; };
+		E781B0BB7BE44F25B34D3F1D /* chevron_left.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = chevron_left.png; path = ../assets/images/chevron_left.png; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FCD59CD5B4E84BC9A65755AA /* recipes.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = recipes.png; path = ../assets/images/MenuItems/recipes.png; sourceTree = "<group>"; };
-		DF7E82DB38694BDBB3099D8F /* lemon_cartoon.png */ = {isa = PBXFileReference; name = "lemon_cartoon.png"; path = "../assets/images/lemon_cartoon.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		11DF90FFA319463081EF52AC /* heart_ic.png */ = {isa = PBXFileReference; name = "heart_ic.png"; path = "../assets/images/heart_ic.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BB9BE392E2E24A249C6D4064 /* heart_ic_liked.png */ = {isa = PBXFileReference; name = "heart_ic_liked.png"; path = "../assets/images/heart_ic_liked.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E5D4BC17F7314F0B861B1F1D /* location.png */ = {isa = PBXFileReference; name = "location.png"; path = "../assets/images/location.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FCD59CD5B4E84BC9A65755AA /* recipes.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = recipes.png; path = ../assets/images/MenuItems/recipes.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +268,6 @@
 				E5D4BC17F7314F0B861B1F1D /* location.png */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -606,6 +605,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lemonade_Standing_App.app/Lemonade_Standing_App";
 			};
 			name = Debug;
@@ -630,6 +634,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lemonade_Standing_App.app/Lemonade_Standing_App";
 			};
 			name = Release;
@@ -641,10 +650,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H663GF3L85;
+				DEVELOPMENT_TEAM = 6X37JEX924;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Lemonade_Standing_App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "The Standing App";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,10 +665,15 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lemonadeStandApp.com;
 				PRODUCT_NAME = Lemonade_Standing_App;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -670,9 +685,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H663GF3L85;
+				DEVELOPMENT_TEAM = 6X37JEX924;
 				INFOPLIST_FILE = Lemonade_Standing_App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "The Standing App";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -683,9 +699,14 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lemonadeStandApp.com;
 				PRODUCT_NAME = Lemonade_Standing_App;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -763,10 +784,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -839,10 +857,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

@@ -5,7 +5,6 @@ import {
   Image,
   Text,
   Dimensions,
-  ScrollView,
   TouchableOpacity,
   TextInput,
   Platform,
@@ -56,7 +55,7 @@ const MarketScreen = ({navigation}) => {
     }
   };
 
-  console.log('Screen Width : ', windowWidth);
+  // console.log('Screen Width : ', windowWidth);
 
   const requestPermission = async () => {
     if (Platform.OS === 'android') {
@@ -131,15 +130,15 @@ const MarketScreen = ({navigation}) => {
           setDateText(formatDate(currentDate));
           setMode('time');
           setShow(true);
-          console.log('Selected Date : ', formatDate(currentDate));
+          // console.log('Selected Date : ', formatDate(currentDate));
         } else {
-          console.log('Mode : ', mode);
-          console.log('show ', show);
+          // console.log('Mode : ', mode);
+          // console.log('show ', show);
           setShow(false);
           setSelectedDateTime(currentDate);
           setTimeText(formatTime(currentDate));
-          console.log('show ', show);
-          console.log('Selected Date and time : ', formatTime(currentDate));
+          // console.log('show ', show);
+          // console.log('Selected Date and time : ', formatTime(currentDate));
         }
       } else {
         setShow(false);
@@ -148,23 +147,22 @@ const MarketScreen = ({navigation}) => {
       if (mode === 'date') {
         setDate(currentDate);
         setDateText(formatDate(currentDate));
-        console.log('Selected Date : ', formatDate(currentDate));
+        // console.log('Selected Date : ', formatDate(currentDate));
       } else {
         setSelectedDateTime(currentDate);
         setTimeText(formatTime(selectedDateTime));
-        console.log('Selected Date and time : ', formatTime(currentDate));
+        // console.log('Selected Date and time : ', formatTime(currentDate));
       }
     }
   };
 
   const showDateTimePicker = () => {
-    setMode('date'); // Start with date mode
-    setShow(true); // Show the picker
+    setMode('date');
+    setShow(true);
   };
 
   const handleCaptureAndPrint = async () => {
     try {
-      // Capture the view and get the image as base64 directly
       const base64String = await captureRef(viewRef, {
         format: 'png',
         quality: 0.8,
@@ -173,9 +171,6 @@ const MarketScreen = ({navigation}) => {
 
       const base64Data = `data:image/png;base64,${base64String}`;
 
-      // await RNPrint.print({
-      //   html: `<img src="${base64Data}" width="100%" />`, // Embed the base64 image for printing
-      // });
       await RNPrint.print({
         html: `
     <html>
@@ -367,10 +362,15 @@ const MarketScreen = ({navigation}) => {
                 <TouchableOpacity
                   style={styles.datePickerDoneBtn}
                   onPress={() => {
+                    const currentDate = new Date();
                     if (mode === 'date') {
+                      setDate(currentDate);
+                      setDateText(formatDate(currentDate));
                       setMode('time');
                     } else {
                       setShow(false);
+                      setSelectedDateTime(currentDate);
+                      setTimeText(formatTime(currentDate));
                     }
                   }}>
                   <Text style={styles.datePickerBtnText}>Done</Text>
