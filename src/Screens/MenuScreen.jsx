@@ -103,7 +103,7 @@ const MenuScreen = ({navigation}) => {
             {/*<Text style={styles.menuHeading}>The Stand App</Text>*/}
             {/*<Text style={styles.menuHeadingWithStroke}>The Stand App</Text>*/}
             <Image
-              source={require('../../assets/images/the_stand_app_logo.png')}
+              source={require('../../assets/images/the_stand_app_logo_new.png')}
             />
           </View>
           <ScrollView style={styles.menuScrollView}>

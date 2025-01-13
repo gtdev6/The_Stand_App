@@ -18,13 +18,13 @@ const HomeScreen = ({navigation}) => {
   const [startBtnPressed, setStartBtnPressed] = useState(false);
   const screenHeight = useHeight();
 
-  console.log('Screen Height : ', screenHeight);
-  console.log('Screen Height to DP', hp(-25));
+  // console.log('Screen Height : ', screenHeight);
+  // console.log('Screen Height to DP', hp(-25));
 
   return (
     <View style={styles.root}>
       <Image
-        source={require('../../assets/images/logo_v1.png')}
+        source={require('../../assets/images/logo_v2.png')}
         style={[styles.homeBackground]}
       />
       <SafeAreaView style={styles.safeAreaContainer}>

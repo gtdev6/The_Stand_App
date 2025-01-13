@@ -653,7 +653,7 @@
 				DEVELOPMENT_TEAM = 6X37JEX924;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Lemonade_Standing_App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "The Standing App";
+				INFOPLIST_KEY_CFBundleDisplayName = "Stand Ap";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,7 +687,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6X37JEX924;
 				INFOPLIST_FILE = Lemonade_Standing_App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "The Standing App";
+				INFOPLIST_KEY_CFBundleDisplayName = "Stand Ap";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
