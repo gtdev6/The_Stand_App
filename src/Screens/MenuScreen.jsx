@@ -24,16 +24,16 @@ const menuItemsData = [
     backgroundColor: '#3ad99c',
   },
   {
-    image: require('../../assets/images/MenuItems/build.png'),
-    menuTitle: 'Build',
-    menuDesc: 'How to build your own stand',
-    backgroundColor: '#d97b46',
-  },
-  {
     image: require('../../assets/images/MenuItems/market.png'),
     menuTitle: 'Market',
     menuDesc: 'Spread the word in your community',
     backgroundColor: '#74ccfa',
+  },
+  {
+    image: require('../../assets/images/MenuItems/build.png'),
+    menuTitle: 'Stand',
+    menuDesc: 'How to build your own stand',
+    backgroundColor: '#d97b46',
   },
 ];
 

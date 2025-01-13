@@ -26,12 +26,6 @@ const carts = [
     link: 'https://www.backporchbliss.com/sawdust-saturday-lemonade-stand/',
   },
   {
-    title: 'Rolling Stand',
-    desc: 'Easily move to where your customers are',
-    image: require('../../assets/images/Carts/classic_stand_image.png'),
-    link: 'https://www.google.com/search?q=rollable+lemonade+stand+diy&sca_esv=44ecb81858b984d3&sca_upv=1&rlz=1C1UEAD_enUS963US963&sxsrf=ADLYWIJ9QLy62w0s1p2bBWsf_2Ekbu1dyg%3A1722457754949&ei=mp6qZo7SObOG0PEPkcyvqQ0&ved=0ahUKEwiOh_-Uj9KHAxUzAzQIHRHmK9UQ4dUDCBA&uact=5&oq=rollable+lemonade+stand+diy&gs_lp=Egxnd3Mtd2l6LXNlcnAiG3JvbGxhYmxlIGxlbW9uYWRlIHN0YW5kIGRpeTIGEAAYFhgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESKwPUFNYvAxwAXgBkAEAmAFcoAHaAqoBATS4AQPIAQD4AQGYAgWgAuYCwgIKEAAYsAMY1gQYR5gDAIgGAZAGB5IHATWgB6sY&sclient=gws-wiz-serp#fpstate=ive&vld=cid:acedfbde,vid:SfOhEXKAHVs,st:0',
-  },
-  {
     title: 'Portable Stand',
     desc: 'Quick setup, perfect for any location',
     image: require('../../assets/images/Carts/portable_stand_image.png'),
@@ -42,12 +36,6 @@ const carts = [
     desc: "A great way to re-use old box's",
     image: require('../../assets/images/Carts/cardboard_stand_image.png'),
     link: 'https://thepinterestedparent.com/2016/02/cardboard-lemonade-stand/',
-  },
-  {
-    title: 'Eco-Stand',
-    desc: 'Rustic look from recycled wood pallets',
-    image: require('../../assets/images/Carts/eco_stand_image.png'),
-    link: 'https://www.youtube.com/watch?v=eseerJA_gVM&t=169s',
   },
 ];
 
@@ -137,11 +125,11 @@ const BuildScreen = ({navigation}) => {
     <View style={styles.root}>
       <SafeAreaView height={safeAreaHeight}>
         <Navigation
-          navigationTitle={'BUILD'}
+          navigationTitle={'Stand'}
           onPressBackBtn={() => navigation.goBack()}
-          onPressForwardBtn={() => navigation.navigate('Market')}
+          // onPressForwardBtn={() => navigation.navigate('Market')}
           enableLeftBtn={true}
-          enableRightBtn={true}
+          enableRightBtn={false}
           style={{marginTop: Platform.OS === 'android' ? 25 : 0}}
         />
         <ScrollView height={safeAreaHeight - 100}>

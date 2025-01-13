@@ -87,10 +87,8 @@ const MarketScreen = ({navigation}) => {
       RNFS.TemporaryDirectoryPath
     }/Lemonade_Market_${Date.now()}.png`; // Path to temporary directory
 
-    // Move the file to a temporary location
     await RNFS.moveFile(uri, path);
 
-    // Now share the image, which allows saving it to Photos on iOS
     Share.open({
       url: 'file://' + path,
       title: 'Save Image',
@@ -177,7 +175,7 @@ const MarketScreen = ({navigation}) => {
       <head>
         <style>
           @page {
-            size: A4;
+            /*size: A4;*/
             margin: 0;
           }
           body {
@@ -187,8 +185,9 @@ const MarketScreen = ({navigation}) => {
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            width: 210mm;
-            height: 297mm;
+            width: fit-content;
+            /*height: 297mm;*/
+            height: fit-content;
           }
           .print-image {
             width: 100%;
@@ -218,9 +217,12 @@ const MarketScreen = ({navigation}) => {
         <Navigation
           navigationTitle={'MARKETING'}
           onPressBackBtn={() => navigation.goBack()}
-          onPressForwardtBtn={() => navigation.goBack()}
+          onPressForwardBtn={() => {
+            navigation.navigate('Stand');
+            console.log('Forward Btn Pressed');
+          }}
           enableLeftBtn={true}
-          enableRightBtn={false}
+          enableRightBtn={true}
           style={{marginTop: Platform.OS === 'android' ? 25 : 0}}
         />
         <KeyboardAwareScrollView
@@ -311,21 +313,7 @@ const MarketScreen = ({navigation}) => {
               </View>
             </View>
           </Androw>
-          <Androw style={styles.marketBtnWrapper}>
-            <TouchableOpacity
-              onPressIn={() => setPrintBtnPressed(true)}
-              onPressOut={() => setPrintBtnPressed(false)}
-              onPress={handleCaptureAndPrint}
-              style={[
-                styles.marketBtnContainer,
-                styles.printBtnContainer,
-                printBtnPressed && styles.bottomBtnPressed,
-              ]}>
-              <Text style={[styles.marketBtnText, styles.printBtnText]}>
-                Print
-              </Text>
-            </TouchableOpacity>
-          </Androw>
+
           <Androw style={styles.marketBtnWrapper}>
             <TouchableOpacity
               onPressIn={() => setShareBtnPressed(true)}
@@ -339,6 +327,21 @@ const MarketScreen = ({navigation}) => {
               onPress={saveImage}>
               <Text style={[styles.marketBtnText, styles.shareBtnText]}>
                 Share
+              </Text>
+            </TouchableOpacity>
+          </Androw>
+          <Androw style={styles.marketBtnWrapper}>
+            <TouchableOpacity
+              onPressIn={() => setPrintBtnPressed(true)}
+              onPressOut={() => setPrintBtnPressed(false)}
+              onPress={handleCaptureAndPrint}
+              style={[
+                styles.marketBtnContainer,
+                styles.printBtnContainer,
+                printBtnPressed && styles.bottomBtnPressed,
+              ]}>
+              <Text style={[styles.marketBtnText, styles.printBtnText]}>
+                Print
               </Text>
             </TouchableOpacity>
           </Androw>

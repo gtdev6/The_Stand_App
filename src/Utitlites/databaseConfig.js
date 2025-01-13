@@ -46,6 +46,27 @@ export function createRecipesTable(db) {
   });
 }
 
+export function createRecipeDetailsTable(db) {
+  db.transaction(tx => {
+    tx.executeSql(
+      `CREATE TABLE IF NOT EXISTS RecipeDetails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        recipeId INTEGER NOT NULL,
+        currentCupsSold INTEGER DEFAULT 0,
+        pricePerCup REAL NOT NULL,
+        FOREIGN KEY (recipeId) REFERENCES Recipe (id) ON DELETE CASCADE
+      )`,
+      [],
+      () => {
+        console.log('RecipeDetails table created successfully');
+      },
+      error => {
+        console.log('Error creating RecipeDetails table:', error);
+      },
+    );
+  });
+}
+
 export function createRecipe(db, recipe) {
   db.transaction(tx => {
     tx.executeSql(
@@ -231,7 +252,7 @@ export const fetchRecipe = async (db, recipeId) => {
         (_, {rows}) => {
           if (rows.length > 0) {
             const updatedRecipe = rows.item(0);
-            // console.log('Updated Recipe:', updatedRecipe); // Update state with the fetched recipe
+            console.log('Updated Recipe:', updatedRecipe); // Update state with the fetched recipe
           }
         },
         (_, error) => {
@@ -244,11 +265,108 @@ export const fetchRecipe = async (db, recipeId) => {
   }
 };
 
+export function createRecipeDetails(db, details) {
+  db.transaction(tx => {
+    tx.executeSql(
+      'INSERT INTO RecipeDetails (recipeId, currentCupsSold, pricePerCup) VALUES (?, ?, ?)',
+      [details.recipeId, details.currentCupsSold, details.pricePerCup],
+      (tx, results) => {
+        console.log('RecipeDetails inserted successfully');
+      },
+      error => {
+        console.log('Error inserting into RecipeDetails:', error);
+      },
+    );
+  });
+}
+
+export function createOrUpdateRecipeDetails(db, details) {
+  db.transaction(tx => {
+    // Step 1: Check if RecipeDetails already exists for the given recipeId
+    tx.executeSql(
+      'SELECT * FROM RecipeDetails WHERE recipeId = ?',
+      [details.recipeId],
+      (tx, results) => {
+        if (results.rows.length > 0) {
+          // RecipeDetails already exists, so update the record
+          const existingRecord = results.rows.item(0);
+          tx.executeSql(
+            'UPDATE RecipeDetails SET currentCupsSold = ?, pricePerCup = ? WHERE recipeId = ?',
+            [details.currentCupsSold, details.pricePerCup, details.recipeId],
+            (tx, results) => {
+              // console.log('RecipeDetails updated successfully');
+            },
+            error => {
+              console.log('Error updating RecipeDetails:', error);
+            },
+          );
+        } else {
+          // RecipeDetails doesn't exist, so insert a new record
+          tx.executeSql(
+            'INSERT INTO RecipeDetails (recipeId, currentCupsSold, pricePerCup) VALUES (?, ?, ?)',
+            [details.recipeId, details.currentCupsSold, details.pricePerCup],
+            (tx, results) => {
+              // console.log('RecipeDetails inserted successfully');
+            },
+            error => {
+              console.log('Error inserting into RecipeDetails:', error);
+            },
+          );
+        }
+      },
+      error => {
+        console.log('Error checking existing RecipeDetails:', error);
+      },
+    );
+  });
+}
+
+export const getRecipeWithDetails = (db, recipeId) => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(
+        `SELECT 
+          r.id AS recipeId, 
+          r.mainTitle, 
+          r.subTitle, 
+          r.ingredients, 
+          r.directions, 
+          r.imageUri, 
+          r.image, 
+          r.favourite, 
+          r.lastAccessed, 
+          rd.currentCupsSold, 
+          rd.pricePerCup 
+         FROM Recipe r
+         LEFT JOIN RecipeDetails rd ON r.id = rd.recipeId
+         WHERE r.id = ?`,
+        [recipeId],
+        (tx, results) => {
+          if (results.rows.length > 0) {
+            const recipeWithDetails = results.rows.item(0);
+            resolve(recipeWithDetails);
+          } else {
+            resolve(null); // No recipe found
+          }
+        },
+        error => {
+          console.log('Error fetching recipe with details:', error);
+          reject(error);
+        },
+      );
+    });
+  });
+};
+
 export const resetDatabase = db => {
   db.transaction(tx => {
+    tx.executeSql('DROP TABLE IF EXISTS RecipeDetails', [], () => {
+      console.log('RecipeDetails table dropped');
+    });
     tx.executeSql('DROP TABLE IF EXISTS Recipe', [], async () => {
       console.log('Recipe table dropped');
       createRecipesTable(db);
+      createRecipeDetailsTable(db);
       await checkAndPrepopulateRecipes(db);
     });
   });

@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {useHeight} from '../Utitlites/useHeight';
 import {responsiveHeight} from 'react-native-responsive-dimensions';
@@ -13,6 +14,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {resetDatabase, openDatabase} from '../Utitlites/databaseConfig';
 
 const HomeScreen = ({navigation}) => {
   const [startBtnPressed, setStartBtnPressed] = useState(false);
@@ -20,6 +22,12 @@ const HomeScreen = ({navigation}) => {
 
   // console.log('Screen Height : ', screenHeight);
   // console.log('Screen Height to DP', hp(-25));
+
+  const handleReset = () => {
+    const db = openDatabase();
+    resetDatabase(db);
+    Alert.alert('Success', 'Database has been reset!');
+  };
 
   return (
     <View style={styles.root}>
@@ -47,6 +55,7 @@ const HomeScreen = ({navigation}) => {
             onPressIn={() => setStartBtnPressed(true)}
             onPressOut={() => setStartBtnPressed(false)}
             onPress={() => navigation.navigate('Menu')}>
+            {/*onPress={() => handleReset()}>*/}
             <View
               style={[
                 styles.startBtn,

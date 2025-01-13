@@ -23,6 +23,7 @@ import {LogBox} from 'react-native';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import {
   checkAndPrepopulateRecipes,
+  createRecipeDetailsTable,
   createRecipesTable,
   getAllRecipes,
   resetDatabase,
@@ -41,6 +42,7 @@ function App() {
       try {
         // resetDatabase(db);
         await createRecipesTable(db);
+        await createRecipeDetailsTable(db);
         await checkAndPrepopulateRecipes(db);
         await fetchRecipes();
       } catch (error) {
@@ -95,7 +97,7 @@ function App() {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name={'Build'}
+          name={'Stand'}
           component={BuildScreen}
           options={{headerShown: false}}
         />

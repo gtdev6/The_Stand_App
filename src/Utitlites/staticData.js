@@ -3,7 +3,7 @@ export const recipesData = [
   {
     mainTitle: 'Country Time',
     subTitle: 'Classic Lemonade',
-    imageUri: '../../assets/images/LemonadeImages/country_time_lemonade.png', // Use require
+    imageUri: '../../assets/images/LemonadeImages/country_time_lemonade.png',
     image: null,
     ingredients: [
       '1 canister of Country Time lemonade',

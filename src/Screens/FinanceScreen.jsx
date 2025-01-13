@@ -17,6 +17,13 @@ import {Slider} from '@rneui/base';
 import Androw from 'react-native-androw';
 import {useSelector} from 'react-redux';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
+// import recipeDetails from './RecipeDetails';
+import {db} from '../../AppWrapper';
+import {
+  createOrUpdateRecipeDetails,
+  fetchRecipe,
+  getRecipeWithDetails,
+} from '../Utitlites/databaseConfig';
 
 function formatNumber(num) {
   return num.toLocaleString('en-US', {
@@ -40,17 +47,39 @@ const FinanceScreen = ({route, navigation}) => {
   const [totalRevenue, setTotalRevenue] = useState(0.0);
   const [totalCost, setTotalCost] = useState(0.0);
 
+  const windowHeight = Dimensions.get('window').height;
+  const windowWidth = Dimensions.get('window').width;
+  // console.log('Window Width : ', windowWidth);
+  const insets = useSafeAreaInsets();
+  const safeAreaHeight = windowHeight - insets.top - insets.bottom;
+  const scrollViewRef = useRef(null);
+
   const otherCostF = parseFloat(otherCost) || 0.0;
-  let ingredient_Cost = parseFloat(
-    ingredientCost.startsWith('$') ? ingredientCost.slice(1) : ingredientCost,
+  let ingredient_Cost = Math.round(
+    parseFloat(
+      ingredientCost.startsWith('$') ? ingredientCost.slice(1) : ingredientCost,
+    ),
   );
 
   if (isNaN(ingredient_Cost)) {
     ingredient_Cost = 0;
   }
 
-  // let totalCost = 0;
-  // let totalCost = ingredient_Cost + otherCostF;
+  useEffect(() => {
+    fetchRecipeDetails(recipe.id);
+  }, []);
+
+  async function fetchRecipeDetails(recipeId) {
+    const recipeDetailsNewest = await getRecipeWithDetails(db, recipeId);
+    let previousCups = recipeDetailsNewest.currentCupsSold ?? 25;
+    let previousPricePerCup = recipeDetailsNewest.pricePerCup ?? 0;
+    console.log('Recipe ID :  ', recipeId);
+    console.log('Previous Cups : ', previousCups);
+    console.log('Previous Price per cups : ', previousPricePerCup);
+    setTotalSales(previousCups);
+    setPricePerCup(previousPricePerCup);
+  }
+
   useEffect(() => {
     if (totalCost == isNaN(totalCost)) {
       setTotalCost(0);
@@ -59,13 +88,6 @@ const FinanceScreen = ({route, navigation}) => {
 
   // const totalProfit = (totalSales * pricePerCup - totalCost).toFixed(2);
   // const totalProfit = 0;
-
-  const windowHeight = Dimensions.get('window').height;
-  const windowWidth = Dimensions.get('window').width;
-  // console.log('Window Width : ', windowWidth);
-  const insets = useSafeAreaInsets();
-  const safeAreaHeight = windowHeight - insets.top - insets.bottom;
-  const scrollViewRef = useRef(null); // Use useRef to access the scroll view instance
 
   const _scrollToInput = reactNode => {
     scrollViewRef.current?.scrollToFocusedInput(reactNode); // Ensure that scrollViewRef is not null
@@ -87,7 +109,9 @@ const FinanceScreen = ({route, navigation}) => {
   }, []);
 
   useEffect(() => {
-    setTotalProfit(() => (totalSales * pricePerCup - totalCost).toFixed(2));
+    setTotalProfit(() =>
+      Math.round(totalSales * pricePerCup - totalCost).toFixed(2),
+    );
   }, [totalCost]);
 
   return (
@@ -96,7 +120,7 @@ const FinanceScreen = ({route, navigation}) => {
         <Navigation
           navigationTitle={'FINANCES'}
           onPressBackBtn={() => navigation.goBack()}
-          onPressForwardBtn={() => navigation.navigate('Build')}
+          onPressForwardBtn={() => navigation.navigate('Market')}
           enableLeftBtn={true}
           enableRightBtn={true}
           style={{marginTop: Platform.OS === 'android' ? 20 : 0}}
@@ -210,20 +234,22 @@ const FinanceScreen = ({route, navigation}) => {
                     onValueChange={newValue => {
                       setTotalSales(newValue);
                       setIngredientCost(
-                        `${(
-                          (totalSales / recipe.servings) *
-                          recipe.ingredientsPrice
-                        ).toFixed(2)}`,
+                        `${Math.round(
+                          (
+                            (totalSales / recipe.servings) *
+                            recipe.ingredientsPrice
+                          ).toFixed(2),
+                        )}`,
                       );
-                      // const totalProfit = (
-                      //   totalSales * pricePerCup -
-                      //   totalCost
-                      // ).toFixed(2);
-                      // setTotalProfit(totalProfit);
+                      createOrUpdateRecipeDetails(db, {
+                        recipeId: recipe.id,
+                        currentCupsSold: totalSales,
+                        pricePerCup: pricePerCup || 0,
+                      });
                     }}
                     maximumValue={100}
                     minimumValue={0}
-                    step={1}
+                    step={5}
                     allowTouchTrack
                     trackStyle={styles.trackStyle}
                     thumbStyle={{
@@ -257,20 +283,20 @@ const FinanceScreen = ({route, navigation}) => {
                         fontSize:
                           windowWidth > 420 ? responsiveFontSize(2.8) : 20,
                       },
-                    ]}>{`$ ${pricePerCup.toFixed(2)} / cup`}</Text>
+                    ]}>{`$ ${Math.round(pricePerCup.toFixed(2))} / cup`}</Text>
                   <Slider
                     value={pricePerCup}
                     onValueChange={newValue => {
                       setPricePerCup(newValue);
-                      // const totalProfit = (
-                      //   totalSales * pricePerCup -
-                      //   totalCost
-                      // ).toFixed(2);
-                      // setTotalProfit(totalProfit);
+                      createOrUpdateRecipeDetails(db, {
+                        recipeId: recipe.id,
+                        currentCupsSold: totalSales,
+                        pricePerCup: pricePerCup || 0,
+                      });
                     }}
                     maximumValue={10}
                     minimumValue={0}
-                    step={0.1}
+                    step={1}
                     allowTouchTrack
                     trackStyle={styles.trackStyle}
                     thumbStyle={{
@@ -334,8 +360,9 @@ const FinanceScreen = ({route, navigation}) => {
                         {
                           fontSize:
                             windowWidth > 420
-                              ? `$${(totalSales * pricePerCup).toFixed(2)}`
-                                  .length > 6
+                              ? `$${Math.round(
+                                  (totalSales * pricePerCup).toFixed(2),
+                                )}`.length > 6
                                 ? responsiveFontSize(1.6)
                                 : responsiveFontSize(2)
                               : windowWidth < 400
@@ -425,18 +452,6 @@ const FinanceScreen = ({route, navigation}) => {
                       if (isNaN(tempIngredientCost)) {
                         tempIngredientCost = 0;
                       }
-                      // setTotalProfit(
-                      //   parseFloat(totalRevenue).toFixed(2) -
-                      //     parseFloat(tempIngredientCost + otherCostF).toFixed(
-                      //       2,
-                      //     ),
-                      // );
-                      // console.log(
-                      //   'Total Profit : ----',
-                      //   tempIngredientCost +
-                      //     otherCostF +
-                      //     parseFloat(totalRevenue),
-                      // );
                     }}
                     focusable={true}
                   />
@@ -491,17 +506,6 @@ const FinanceScreen = ({route, navigation}) => {
                         other_Cost = '';
                       }
                       setOtherCost(other_Cost);
-                      // if (isNaN(ingredientsPrice)) {
-                      //   ingredientsPrice = 0;
-                      // }
-
-                      // const totalRevenue = (totalSales * pricePerCup).toFixed(
-                      //   2,
-                      // );
-                      // setTotalProfit(
-                      //   parseFloat(totalRevenue).toFixed(2) -
-                      //     (ingredientsPrice + other_Cost),
-                      // );
                     }}
                   />
                 </View>
@@ -544,7 +548,8 @@ const FinanceScreen = ({route, navigation}) => {
                         fontSize:
                           windowWidth > 420
                             ? responsiveFontSize(2.3)
-                            : `$${parseFloat(totalCost).toFixed(2)}`.length > 7
+                            : `$${Math.round(parseFloat(totalCost).toFixed(2))}`
+                                .length > 7
                             ? 18
                             : 22,
                       },

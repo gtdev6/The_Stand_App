@@ -10,19 +10,29 @@ import {
   Platform,
 } from 'react-native';
 import Navigation from '../Components/Navigation';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Androw from 'react-native-androw';
 import {resolveImageSource} from '../Components/RecipeCard';
-import {updateLastAccessedTime} from '../Utitlites/databaseConfig';
+import {
+  getRecipeWithDetails,
+  updateLastAccessedTime,
+} from '../Utitlites/databaseConfig';
 import {db} from '../../AppWrapper';
 import {setRecipes, updateAccessTime} from '../slices/recipeSlice';
 import {useDispatch} from 'react-redux';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import {RFPercentage} from 'react-native-responsive-fontsize';
+import {useFocusEffect} from '@react-navigation/native';
 
-function splitTextIfContainsExactPhrase(fullText, searchPhrase) {
+function performCalculationsOnNumbers(numbers, servings) {
+  return numbers.map(num => {
+    return parseFloat(num * (servings / 25)).toFixed(1);
+  });
+}
+
+function splitTextIfContainsExactPhrase(fullText, searchPhrase, servings) {
   const lowerFullText = fullText.toLowerCase();
   const lowerSearchWords = searchPhrase.toLowerCase().split(' ');
 
@@ -69,13 +79,41 @@ function splitTextIfContainsExactPhrase(fullText, searchPhrase) {
           fontSize: windowWidth > 420 ? responsiveFontSize(2.4) : 20,
         },
       ]}>
-      {beforePhrase}{' '}
+      {replaceNumbersInSentence(
+        beforePhrase,
+        performCalculationsOnNumbers(
+          extractDigitsFromString(beforePhrase),
+          servings
+        )
+      )}{' '}
       <Text allowFontScaling={false} style={{fontFamily: 'AnonymousPro-Bold'}}>
         {matchingPhrase.trim()}
       </Text>{' '}
-      {remainingText}
+      {replaceNumbersInSentence(
+        remainingText,
+        performCalculationsOnNumbers(
+          extractDigitsFromString(remainingText),
+          servings
+        )
+      )}
     </Text>
   );
+}
+
+// Function to extract digits from a sentence and return them in an array
+function extractDigitsFromString(text) {
+  const digits = text.match(/\d+/g); // This matches all digit sequences in the string
+  return digits ? digits.map(Number) : []; // Convert to numbers
+}
+
+// Function to replace the numbers in the sentence
+function replaceNumbersInSentence(text, newNumbers) {
+  // Find all numbers in the sentence
+  const regex = /\d+/g;
+  let index = 0;
+
+  // Replace the numbers in the sentence with the new ones
+  return text.replace(regex, () => newNumbers[index++] || '');
 }
 
 const RecipeDetails = ({route, navigation}) => {
@@ -85,6 +123,7 @@ const RecipeDetails = ({route, navigation}) => {
   const dispatch = useDispatch();
   const safeAreaHeight = windowHeight - insets.top - insets.bottom;
   const {recipe} = route.params;
+  const [servings, setServings] = useState(25);
 
   const imageSource = resolveImageSource(recipe);
 
@@ -96,6 +135,46 @@ const RecipeDetails = ({route, navigation}) => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    fetchRecipeDetails(recipe.id)
+      .then(result => {
+        console.log(result); // "Operation successful"
+      })
+      .catch(error => {
+        console.log(error); // In case of rejection, "Operation failed"
+      });
+  }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const fetchData = async () => {
+        try {
+          const result = await fetchRecipeDetails(recipe.id);
+          console.log(result);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchData();
+      return () => {};
+    }, [])
+  );
+
+  // function performCalculationsOnNumbers(numbers) {
+  //   return numbers.map(num => {
+  //     return parseFloat(num * (servings / 25)).toFixed(1);
+  //   });
+  // }
+
+  async function fetchRecipeDetails(recipeId) {
+    const recipeDetailsNewest = await getRecipeWithDetails(db, recipeId);
+    let previousCups = recipeDetailsNewest.currentCupsSold ?? 25;
+    let previousPricePerCup = recipeDetailsNewest.pricePerCup ?? 0;
+    console.log('previousCups : ', previousCups);
+    setServings(previousCups);
+
+    console.log('Previous Price per cup : ', previousPricePerCup);
+  }
 
   console.log('================================');
   console.log('Window Width: ', windowWidth);
@@ -161,7 +240,7 @@ const RecipeDetails = ({route, navigation}) => {
                           windowWidth > 420 ? responsiveFontSize(2.2) : 20,
                       },
                     ]}>
-                    {`(${recipe.servings ?? '25'} Servings)`}
+                    {`(${servings ?? '25'} Servings)`}
                   </Text>
                 </View>
                 <View style={styles.ingredientItemsContainer}>
@@ -169,6 +248,7 @@ const RecipeDetails = ({route, navigation}) => {
                     const result = splitTextIfContainsExactPhrase(
                       ingredient,
                       `${recipe.mainTitle} ${recipe.subTitle}`,
+                      servings
                     );
 
                     return (
@@ -191,7 +271,16 @@ const RecipeDetails = ({route, navigation}) => {
                                     : 20,
                               },
                             ]}>
-                            {ingredient}
+                            {
+                              // ingredient
+                              replaceNumbersInSentence(
+                                ingredient,
+                                performCalculationsOnNumbers(
+                                  extractDigitsFromString(ingredient),
+                                  servings
+                                )
+                              )
+                            }
                           </Text>
                         )}
                       </View>
@@ -250,7 +339,7 @@ const RecipeDetails = ({route, navigation}) => {
         <View style={[styles.bottomBtnWrapper, {marginBottom: 35}]}>
           <TouchableOpacity
             style={[styles.continueBtn]}
-            onPress={() => navigation.navigate('Money')}>
+            onPress={() => navigation.navigate('Money', {recipe: recipe})}>
             <Text
               allowFontScaling={false}
               style={[
