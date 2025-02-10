@@ -39,6 +39,7 @@
 	<string>App needs access to your photo library for reading and writing files.</string>
 	<key>UIAppFonts</key>
 	<array>
+	    <string>FontAwesome.ttf</string>
 		<string>Just Note.ttf</string>
 		<string>TchigMono-Bold.ttf</string>
 		<string>TchigMono-Light.ttf</string>

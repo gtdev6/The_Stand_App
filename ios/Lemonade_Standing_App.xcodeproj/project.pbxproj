@@ -46,6 +46,7 @@
 		93FF2CCBF3294625AD296FE1 /* strawberry_lemonade.png in Resources */ = {isa = PBXBuildFile; fileRef = 921134F5CF9D421A9AD0CB66 /* strawberry_lemonade.png */; };
 		9C3FE4C73EA148CC8826DF52 /* recipes.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD59CD5B4E84BC9A65755AA /* recipes.png */; };
 		A9F6B7165C2A41DEA44C42B2 /* drink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02CA4096A12B4632887E9203 /* drink.jpg */; };
+		ADC27D2C2D38E5C500B23854 /* logo_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC27D2B2D38E5C500B23854 /* logo_v2.png */; };
 		AF10A3395A8D42CA9C4131EF /* classic_homemade_lemonade.png in Resources */ = {isa = PBXBuildFile; fileRef = D16B795AC3AA4C388C3A885E /* classic_homemade_lemonade.png */; };
 		BB30B22E29324938A96A2A52 /* TchigMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 818ACEC52CD349CCB1BBBC70 /* TchigMono-Regular.ttf */; };
 		C2AE31BCBA8F4F77B3A41FB9 /* TchigMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECD0C639B74479E8648CFD8 /* TchigMono-Bold.ttf */; };
@@ -115,6 +116,7 @@
 		9578A98DC67E4FEE801F609E /* rolling_stand_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = rolling_stand_image.png; path = ../assets/images/Carts/rolling_stand_image.png; sourceTree = "<group>"; };
 		A53AADAC1F4C4D218A4A80D5 /* country_time_pink_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = country_time_pink_lemonade.png; path = ../assets/images/LemonadeImages/country_time_pink_lemonade.png; sourceTree = "<group>"; };
 		A91C2DB316E8BC43DD488F82 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Lemonade_Standing_App/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		ADC27D2B2D38E5C500B23854 /* logo_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_v2.png; sourceTree = "<group>"; };
 		B13C07E0E8854A1088DD0F15 /* mint_lemonade.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mint_lemonade.png; path = ../assets/images/LemonadeImages/mint_lemonade.png; sourceTree = "<group>"; };
 		B38E20822D014E2AA1E04DDF /* TchigMono-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TchigMono-Light.ttf"; path = "../assets/fonts/TchigMono-Light.ttf"; sourceTree = "<group>"; };
 		BB9BE392E2E24A249C6D4064 /* heart_ic_liked.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = heart_ic_liked.png; path = ../assets/images/heart_ic_liked.png; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				5A70D4B62C2C401D87A5B9B4 /* country_time_lemonade.png */,
 				A53AADAC1F4C4D218A4A80D5 /* country_time_pink_lemonade.png */,
 				B13C07E0E8854A1088DD0F15 /* mint_lemonade.png */,
+				ADC27D2B2D38E5C500B23854 /* logo_v2.png */,
 				921134F5CF9D421A9AD0CB66 /* strawberry_lemonade.png */,
 				6F5464AD79A84E9FA0D85E57 /* lemonadeposter.png */,
 				06754F242DE14E5F94EA0479 /* chevro_left.svg */,
@@ -404,6 +407,7 @@
 				4143428255634CB2B3412A54 /* chevron_right.svg in Resources */,
 				08A1D664DE9C4FAF99EA383C /* tick_circle.png in Resources */,
 				2A2303347D9E4574993F934C /* build.png in Resources */,
+				ADC27D2C2D38E5C500B23854 /* logo_v2.png in Resources */,
 				303078BBD9C046AA9B68D0A3 /* market.png in Resources */,
 				1EE84D2D530042178296F86B /* money.png in Resources */,
 				9C3FE4C73EA148CC8826DF52 /* recipes.png in Resources */,

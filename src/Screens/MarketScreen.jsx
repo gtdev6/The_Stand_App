@@ -18,7 +18,7 @@ import React, {useRef, useState} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RNFS from 'react-native-fs';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {request, PERMISSIONS} from 'react-native-permissions';
+// import {request, PERMISSIONS} from 'react-native-permissions';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Androw from 'react-native-androw';
 import Share from 'react-native-share';
@@ -99,33 +99,36 @@ const MarketScreen = ({navigation}) => {
       .catch(error => console.log('Error saving image to Photos:', error));
   };
 
-  const formatDate = date => {
+  const formatDate = expected_date => {
     return new Intl.DateTimeFormat('en-US', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
-    }).format(date);
+    }).format(expected_date);
   };
 
-  const formatTime = date => {
+  const formatTime = expected_date => {
     return new Intl.DateTimeFormat('en-US', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true, // Enables 12-hour format
-    }).format(date);
+    }).format(expected_date);
   };
 
   const onChange = (event, selectedValue) => {
-    const currentDate = selectedValue || date;
+    // console.log('Date : ', date);
+    // console.log('selected value : ', selectedValue);
+    const currentDate = selectedValue || new Date();
+    // console.log('current date value : ', currentDate);
     // setShow(false);
     setDate(currentDate);
 
     if (Platform.OS === 'android') {
       if (event.type === 'set') {
-        if (mode == 'date') {
+        if (mode === 'date') {
           setShow(false);
           setDate(currentDate);
-          setDateText(formatDate(currentDate));
+          // setDateText(formatDate(currentDate));
           setMode('time');
           setShow(true);
           // console.log('Selected Date : ', formatDate(currentDate));
@@ -144,12 +147,17 @@ const MarketScreen = ({navigation}) => {
     } else {
       if (mode === 'date') {
         setDate(currentDate);
-        setDateText(formatDate(currentDate));
-        // console.log('Selected Date : ', formatDate(currentDate));
+        let date_str = formatDate(currentDate);
+        setDateText(date_str);
+        console.log('Selected Date : date block ', formatDate(currentDate));
+        console.log('Date String ', date_str);
       } else {
-        setSelectedDateTime(currentDate);
-        setTimeText(formatTime(selectedDateTime));
-        // console.log('Selected Date and time : ', formatTime(currentDate));
+        setSelectedDateTime(formatDate(currentDate));
+        setTimeText(formatTime(currentDate));
+        console.log(
+          'Selected Date and time :  else block',
+          formatTime(currentDate)
+        );
       }
     }
   };
@@ -219,7 +227,6 @@ const MarketScreen = ({navigation}) => {
           onPressBackBtn={() => navigation.goBack()}
           onPressForwardBtn={() => {
             navigation.navigate('Stand');
-            console.log('Forward Btn Pressed');
           }}
           enableLeftBtn={true}
           enableRightBtn={true}
@@ -365,14 +372,14 @@ const MarketScreen = ({navigation}) => {
                 <TouchableOpacity
                   style={styles.datePickerDoneBtn}
                   onPress={() => {
-                    const currentDate = new Date();
+                    const currentDate = date || new Date();
                     if (mode === 'date') {
                       setDate(currentDate);
                       setDateText(formatDate(currentDate));
                       setMode('time');
                     } else {
                       setShow(false);
-                      setSelectedDateTime(currentDate);
+                      setSelectedDateTime(formatDate(currentDate));
                       setTimeText(formatTime(currentDate));
                     }
                   }}>
@@ -553,12 +560,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 0,
+    maxWidth: '90%',
   },
   datePickerDoneBtn: {
     minHeight: 50,
     width: '100%',
-    minWidth: '80%',
     // minWidth: '80%',
+    minWidth: '100%',
     padding: 5,
     backgroundColor: 'rgba(128,56,19,0.65)',
     justifyContent: 'center',
