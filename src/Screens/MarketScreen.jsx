@@ -9,6 +9,8 @@ import {
   TextInput,
   Platform,
   PermissionsAndroid,
+  TouchableWithoutFeedback,
+  PixelRatio,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {captureRef} from 'react-native-view-shot';
@@ -38,6 +40,8 @@ const MarketScreen = ({navigation}) => {
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState('date'); // Start with date picker
   const [selectedDateTime, setSelectedDateTime] = useState('');
+  const [isDateEnabled, setIsDateEnabled] = useState(true);
+  const [align, setAlign] = useState('center');
 
   const insets = useSafeAreaInsets();
   const locationInputFieldRef = useRef();
@@ -60,7 +64,7 @@ const MarketScreen = ({navigation}) => {
   const requestPermission = async () => {
     if (Platform.OS === 'android') {
       return await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
       );
     }
     return true;
@@ -77,7 +81,7 @@ const MarketScreen = ({navigation}) => {
         uri => {
           saveImageToPhotos(uri);
         },
-        error => console.error('Oops, snapshot failed', error),
+        error => console.error('Oops, snapshot failed', error)
       );
     }
   };
@@ -241,6 +245,58 @@ const MarketScreen = ({navigation}) => {
             paddingVertical: 20,
             paddingHorizontal: wp(5),
           }}>
+          <View style={styles.editPosterContainer}>
+            <View style={styles.alignBtnContainer}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  setAlign(() => setAlign('flex-start'));
+                }}>
+                <Androw style={styles.alignBtn}>
+                  <Image
+                    style={styles.alignBtnImage}
+                    source={require('../../assets/images/right_align.png')}
+                  />
+                </Androw>
+              </TouchableWithoutFeedback>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  setAlign(() => setAlign('center'));
+                }}>
+                <Androw style={styles.alignBtn}>
+                  <Image
+                    style={styles.alignBtnImage}
+                    source={require('../../assets/images/center_align.png')}
+                  />
+                </Androw>
+              </TouchableWithoutFeedback>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  setAlign(() => setAlign('flex-end'));
+                }}>
+                <Androw style={styles.alignBtn}>
+                  <Image
+                    style={styles.alignBtnImage}
+                    source={require('../../assets/images/left_align.png')}
+                  />
+                </Androw>
+              </TouchableWithoutFeedback>
+            </View>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setIsDateEnabled(prevState => !prevState);
+              }}>
+              <Androw style={styles.alignBtn}>
+                <Image
+                  style={styles.alignBtnImage}
+                  source={
+                    isDateEnabled
+                      ? require('../../assets/images/calendar.png')
+                      : require('../../assets/images/remove_calender.png')
+                  }
+                />
+              </Androw>
+            </TouchableWithoutFeedback>
+          </View>
           <Androw style={styles.postContainerWrapper}>
             <View
               style={[styles.postContainer, {minHeight: minPostContHeight}]}
@@ -258,26 +314,29 @@ const MarketScreen = ({navigation}) => {
                 />
               </View>
 
-              <View style={styles.posterStandView}>
+              <View
+                style={[styles.posterStandView, {justifyContent: `${align}`}]}>
                 <Text
                   allowFontScaling={false}
                   style={[styles.postStandText, {fontSize: postContFontSize}]}>
                   STAND
                 </Text>
-                <TouchableOpacity onPress={showDateTimePicker}>
-                  <View style={styles.postDateTimeView}>
-                    <Text
-                      allowFontScaling={false}
-                      style={styles.postDateTimeText}>
-                      {dateText}
-                    </Text>
-                    <Text
-                      allowFontScaling={false}
-                      style={styles.postDateTimeText}>
-                      {timeText}
-                    </Text>
-                  </View>
-                </TouchableOpacity>
+                {isDateEnabled && (
+                  <TouchableOpacity onPress={showDateTimePicker}>
+                    <View style={styles.postDateTimeView}>
+                      <Text
+                        allowFontScaling={false}
+                        style={styles.postDateTimeText}>
+                        {dateText}
+                      </Text>
+                      <Text
+                        allowFontScaling={false}
+                        style={styles.postDateTimeText}>
+                        {timeText}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                )}
               </View>
               <View style={styles.postLocationView}>
                 <Image
@@ -402,6 +461,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFFBDE',
   },
+  editPosterContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  alignBtnContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  alignBtn: {
+    minWidth: 20,
+    minHeight: 20,
+    height: 15 * PixelRatio.get(),
+    width: 15 * PixelRatio.get(),
+    maxWidth: 45,
+    maxHeight: 45,
+    backgroundColor: 'white',
+    borderRadius: 5 * PixelRatio.get(),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  alignBtnImage: {
+    maxWidth: 20,
+    maxHeight: 20,
+  },
+
   postContainerWrapper: {
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 2},
@@ -455,7 +550,6 @@ const styles = StyleSheet.create({
     // backgroundColor: 'orange',
     flexDirection: 'row',
     gap: 10,
-    justifyContent: 'center',
     marginBottom: 5,
   },
   postStandText: {
