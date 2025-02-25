@@ -20,11 +20,32 @@ import React, {useRef, useState} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RNFS from 'react-native-fs';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import PropTypes from 'prop-types';
 // import {request, PERMISSIONS} from 'react-native-permissions';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Androw from 'react-native-androw';
 import Share from 'react-native-share';
 
+function UtilityImageBtn(props) {
+  const [isPressed, setIsPressed] = useState(false);
+  return (
+    <TouchableWithoutFeedback
+      onPress={props.onPress}
+      onPressIn={() => setIsPressed(true)}
+      onPressOut={() => setIsPressed(false)}>
+      <Androw style={!isPressed && styles.alignBtnAndrowView}>
+        <View style={styles.alignBtn}>
+          <Image style={styles.alignBtnImage} source={props.imageSource} />
+        </View>
+      </Androw>
+    </TouchableWithoutFeedback>
+  );
+}
+
+UtilityImageBtn.propTypes = {
+  onPress: PropTypes.func,
+  imageSource: PropTypes.number,
+};
 const MarketScreen = ({navigation}) => {
   const viewRef = useRef();
   const windowHeight = Dimensions.get('window').height;
@@ -59,7 +80,7 @@ const MarketScreen = ({navigation}) => {
     }
   };
 
-  // console.log('Screen Width : ', windowWidth);
+  console.log('Pixel Ratio : ', PixelRatio.get() * windowWidth);
 
   const requestPermission = async () => {
     if (Platform.OS === 'android') {
@@ -247,37 +268,36 @@ const MarketScreen = ({navigation}) => {
           }}>
           <View style={styles.editPosterContainer}>
             <View style={styles.alignBtnContainer}>
-              <TouchableWithoutFeedback
+              <UtilityImageBtn
                 onPress={() => {
                   setAlign(() => setAlign('flex-start'));
-                }}>
-                <Androw style={styles.alignBtn}>
-                  <Image
-                    style={styles.alignBtnImage}
-                    source={require('../../assets/images/right_align.png')}
-                  />
-                </Androw>
-              </TouchableWithoutFeedback>
+                }}
+                imageSource={require('../../assets/images/right_align.png')}
+              />
               <TouchableWithoutFeedback
                 onPress={() => {
                   setAlign(() => setAlign('center'));
                 }}>
-                <Androw style={styles.alignBtn}>
-                  <Image
-                    style={styles.alignBtnImage}
-                    source={require('../../assets/images/center_align.png')}
-                  />
+                <Androw style={styles.alignBtnAndrowView}>
+                  <View style={styles.alignBtn}>
+                    <Image
+                      style={styles.alignBtnImage}
+                      source={require('../../assets/images/center_align.png')}
+                    />
+                  </View>
                 </Androw>
               </TouchableWithoutFeedback>
               <TouchableWithoutFeedback
                 onPress={() => {
                   setAlign(() => setAlign('flex-end'));
                 }}>
-                <Androw style={styles.alignBtn}>
-                  <Image
-                    style={styles.alignBtnImage}
-                    source={require('../../assets/images/left_align.png')}
-                  />
+                <Androw style={styles.alignBtnAndrowView}>
+                  <View style={styles.alignBtn}>
+                    <Image
+                      style={styles.alignBtnImage}
+                      source={require('../../assets/images/left_align.png')}
+                    />
+                  </View>
                 </Androw>
               </TouchableWithoutFeedback>
             </View>
@@ -285,15 +305,17 @@ const MarketScreen = ({navigation}) => {
               onPress={() => {
                 setIsDateEnabled(prevState => !prevState);
               }}>
-              <Androw style={styles.alignBtn}>
-                <Image
-                  style={styles.alignBtnImage}
-                  source={
-                    isDateEnabled
-                      ? require('../../assets/images/calendar.png')
-                      : require('../../assets/images/remove_calender.png')
-                  }
-                />
+              <Androw style={styles.alignBtnAndrowView}>
+                <View style={styles.alignBtn}>
+                  <Image
+                    style={styles.alignBtnImage}
+                    source={
+                      isDateEnabled
+                        ? require('../../assets/images/calendar.png')
+                        : require('../../assets/images/remove_calender.png')
+                    }
+                  />
+                </View>
               </Androw>
             </TouchableWithoutFeedback>
           </View>
@@ -477,16 +499,18 @@ const styles = StyleSheet.create({
   alignBtn: {
     minWidth: 20,
     minHeight: 20,
-    height: 15 * PixelRatio.get(),
-    width: 15 * PixelRatio.get(),
-    maxWidth: 45,
-    maxHeight: 45,
+    height: 16 * PixelRatio.get(),
+    width: 16 * PixelRatio.get(),
+    maxWidth: 60,
+    maxHeight: 60,
     backgroundColor: 'white',
     borderRadius: 5 * PixelRatio.get(),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-
+    overflow: 'hidden',
+  },
+  alignBtnAndrowView: {
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.2,
